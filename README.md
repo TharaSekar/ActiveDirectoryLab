@@ -1,6 +1,6 @@
 <h1>Active Directory Home Lab</h1>
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+I created this Virtual network with Domain Controller and Client machine 
 
 <h2>Description</h2>
 description of my project
