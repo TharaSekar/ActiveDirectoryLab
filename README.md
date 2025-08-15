@@ -31,9 +31,8 @@ This project demonstrates the setup of a basic Active Directory Domain Controlle
 <h2>Network Diagram:</h2>
 
 <p align="center">
-<img src="images/networkdiagram.png" height="80%" width="80%" >
-<br />
-<br />
+  <img src="networkdiagram.png" width="600">
+</p>
 
 
 <!--
