@@ -37,19 +37,17 @@ The goal was to simulate a real-world environment where attackers target exposed
 
 - The dashboard shows city, country, and frequency of attacks, providing real-time threat visibility.
 
-Before (initial setup, no attacks yet):
-
-
-After (hours later, visible attacks from multiple regions):
-
-
-
-<h2>Network Diagram:</h2>
+<h3>Before (initial setup, no attacks yet):</h3>
 
 <p align="center">
-  <img src="networkdiagram.png" width="600">
+  <img src="map 01.png" width="600">
 </p>
 
+<h3>After (hours later, visible attacks from multiple regions):</h3>
+
+<p align="center">
+  <img src="map 02.png" width="600">
+</p>
 
 <!--
  ```diff
