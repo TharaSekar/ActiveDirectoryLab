@@ -1,32 +1,48 @@
-<h1>Active Directory Home Lab</h1>
+<h1>Home SOC Lab - Honeypot SIEM with Microsoft Sentinel</h1>
 
 
 <h2>Description</h2>
-This project demonstrates the setup of a basic Active Directory Domain Controller in a virtualized lab environment using Windows Server 2022 and Windows 10. The lab includes DNS, DHCP, and RAS features, with domain-joined client machines, simulating a small office IT infrastructure.
+This project demonstrates how I set up a honeypot virtual machine in Azure, collected attack data, and visualized it in Microsoft Sentinel. 
+The goal was to simulate a real-world environment where attackers target exposed systems and then use SIEM tools to monitor and analyze those attempts.
 <br />
 <br />
-
-
-| MACHINE  | OS                        | IP ADDRESS      | ROLE                                | NICs             |
-|----------|---------------------------|-----------------|-------------------------------------|------------------|
-| THLDC    | Windows Server 2022 Eval  | 172.16.0.1      | Domain Controller, DNS, DHCP, RAS,  | NAT + Internal   |
-| Client01 | Windows 10 Eval           | DHCP - assigned | Domin-joined Client                 | Internal only    |
-
   
+| Component          | Details                                                        |  
+|--------------------|----------------------------------------------------------------|
+| **Platform**       | Microsoft Azure                                                |
+| **VM OS**          | Windows 10 Pro                                                 |
+| **Security Tools** | Microsoft Defender for Endpoint, Microsoft Sentinel (SIEM)     |
 
-<h2>System Workflow</h2>
+<h2>Project Overview</h2>
 
-- The DC uses a static IP on the internal network (e.g., 172.16.0.1)
-- The client connects to the DC via internal network only
-- The DC connects to the internet via NAT and shares it to the client using RAS
-- DHCP is used to assign IPs to clients
-- DNS on the DC resolves domain-related names
+<h3>Azure Setup</h3>
 
-- <h2>Tools Used</h2>
+- Deployed a resource group, virtual network, and Windows 10 VM in Azure.
 
-- <b>VirtualBox (hosted on Windows 11)</b>
-- <b>Windows Server 2022 (Evaluation)</b>
-- <b>Windows 10 (Evaluation)</b>
+- Modified the Network Security Group (NSG) to allow open inbound access and disabled the VM firewall, intentionally making it vulnerable.
+
+- Result: within hours, attackers from multiple regions attempted RDP connections.
+
+<h3>Log Analytics + Sentinel</h3>
+
+- Created a Log Analytics Workspace (LAW) and connected it to Microsoft Sentinel.
+
+- Installed the Azure Monitoring Agent on the VM and configured a Data Collection Rule to gather Windows Security Event Logs.
+
+<h3>Threat Visualization</h3>
+
+- Imported a GeoIP watchlist (IP ranges + location data).
+
+- Built a Sentinel Workbook with KQL queries to plot attacker locations on an interactive map.
+
+- The dashboard shows city, country, and frequency of attacks, providing real-time threat visibility.
+
+Before (initial setup, no attacks yet):
+
+
+After (hours later, visible attacks from multiple regions):
+
+
 
 <h2>Network Diagram:</h2>
 
