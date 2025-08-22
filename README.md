@@ -11,28 +11,27 @@ This project demonstrates the setup of a basic Active Directory Domain Controlle
 | THLDC    | Windows Server 2022 Eval  | 172.16.0.1      | Domain Controller, DNS, DHCP, RAS,  | NAT + Internal   |
 | Client01 | Windows 10 Eval           | DHCP - assigned | Domin-joined Client                 | Internal only    |
 
-
-
 <h2>System Workflow</h2>
-@@ -29,11 +28,10 @@ This project demonstrates the setup of a basic Active Directory Domain Controlle
+
+- <b>PowerShell</b> 
+- The DC uses a static IP on the internal network (e.g., 172.16.0.1)
+- The client connects to the DC via internal network only
+- The DC connects to the internet via NAT and shares it to the client using RAS
+- DHCP is used to assign IPs to clients
+- DNS on the DC resolves domain-related names
+
+- <h2>Tools Used</h2>
+
+- <b>VirtualBox (hosted on Windows 11)</b>
 - <b>Windows Server 2022 (Evaluation)</b>
 - <b>Windows 10 (Evaluation)</b>
 
-<h2>Program walk-through:</h2>
 <h2>Network Diagram:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="images/networkdiagram.png" height="80%" width="80%" >
 <br />
-<br />
+  <img src="networkdiagram.png" width="600">
+</p>
+
+
 <!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
